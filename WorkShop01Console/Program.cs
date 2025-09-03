@@ -24,8 +24,8 @@ try
 
     var t6 = new Time(45, -7, 90, -87 );
 }
-catch (Exception exception)
+catch (Exception ex)
 {
-    Console.WriteLine(exception.Message);
+    Console.WriteLine(ex.Message);
 }
 
