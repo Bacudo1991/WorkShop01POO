@@ -115,7 +115,7 @@ public class Time
         return total >= 24 * 3600000L;
     }
 
-    public object Add(Time t3)
+    public Time Add(Time t3)
     {
         int newMs = this.Millisecond + t3.Millisecond;
         int carrySec = newMs / 1000;
@@ -129,7 +129,7 @@ public class Time
         int carryHour = newMin / 60;
         newMin %= 60;
 
-        int newHour = this.Hour + t3.Hour +  carryHour;
+        int newHour = this.Hour + t3.Hour + carryHour;
         newHour %= 24; // si se pasa de 24, reinicia
 
         return new Time(newHour, newMin, newSec, newMs);
@@ -137,7 +137,7 @@ public class Time
 
     private int ValidHour(int Hour)
     {
-        if (Hour < 0 && Hour > 23)
+        if (Hour < 0 || Hour > 23)
         {
             throw new Exception($"The hour: {Hour}, is not valid");
         }
@@ -146,7 +146,7 @@ public class Time
 
     private int ValidMillisecond(int Millisecond)
     {
-        if (Millisecond < 0 && Millisecond > 999)
+        if (Millisecond < 0 || Millisecond > 999)
         {
             throw new Exception($"The milliseconds: {Millisecond}, is not valid");
         }
@@ -155,7 +155,7 @@ public class Time
 
     private int ValidMinute(int Minute)
     {
-        if (Minute < 0 && Minute > 59)
+        if (Minute < 0 || Minute > 59)
         {
             throw new Exception($"The minutes: {Minute}, is not valid");
         }
@@ -164,7 +164,7 @@ public class Time
 
     private int ValidSecond(int Second)
     {
-        if (Second < 0 && Second > 59)
+        if (Second < 0 || Second > 59)
         {
             throw new Exception($"The seconds: {Second}, is not valid");
         }
