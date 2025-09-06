@@ -51,43 +51,31 @@ public class Time
     public int Hour
     {
         get => _hour;
-        set
-        {
-            _hour = ValidHour(value);
-        }
+        set => _hour = ValidHour(value);
     }
 
     public int Millisecond
     {
         get => _millisecond;
-        set
-        {
-            _millisecond = ValidMillisecond(value);
-        }
+        set => _millisecond = ValidMillisecond(value);
     }
 
     public int Minute
     {
         get => _minute;
-        set
-        {
-            _minute = ValidMinute(value);
-        }
+        set => _minute = ValidMinute(value);
     }
 
     public int Second
     {
         get => _second;
-        set
-        {
-            _second = ValidSecond(value);
-        }
+        set => _second = ValidSecond(value);
     }
     
     public override string ToString()
     {
         DateTime dt = new DateTime(1, 1, 1, Hour, Minute, Second, Millisecond);
-        String result = dt.ToString("hh:mm:ss.fff tt", new CultureInfo("en-US"));
+        String result = dt.ToString("hh:mm:ss.fff tt", new CultureInfo("en-US")); 
 
         if (Hour == 0)
         {
