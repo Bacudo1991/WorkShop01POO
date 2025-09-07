@@ -75,7 +75,7 @@ public class Time
     public override string ToString()
     {
         DateTime dt = new DateTime(1, 1, 1, Hour, Minute, Second, Millisecond);
-        String result = dt.ToString("hh:mm:ss.fff tt", new CultureInfo("en-US")); 
+        String result = dt.ToString("hh:mm:ss.fff tt", new CultureInfo("en-US"));
 
         if (Hour == 0)
         {
@@ -84,18 +84,12 @@ public class Time
         return result;
     }
 
-    public long ToMilliseconds()
-    {
-        return (Hour * 3600000L) + (Minute * 60000L) + (Second * 1000L) + Millisecond;
-    }
-    public long ToSeconds()
-    {
-        return (Hour * 3600L) + (Minute * 60L) + Second;
-    }
-    public long ToMinutes()
-    {
-        return (Hour * 60L) + Minute;
-    }
+    public long ToMilliseconds() => (Hour * 3600000L) + (Minute * 60000L) + (Second * 1000L) + Millisecond;
+    
+    public long ToSeconds() => (Hour * 3600L) + (Minute * 60L) + Second;
+    
+    public long ToMinutes() => (Hour * 60L) + Minute;
+    
 
     public bool IsOtherDay(Time t4)
     {
